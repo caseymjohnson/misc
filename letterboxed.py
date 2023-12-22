@@ -3,20 +3,22 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # quick program to solve letterboxed (optimally?)
+
+# helper to check where a character lies in the puzzle
 def isInGroup(c, groups):
     for g in range(len(groups)):
         if c in groups[g]:
             return g
     return -1
 
+# helper to check if a given list of words will use every character in the puzzle
 def isSolution(candidate, groups):
     for char in ''.join(groups):
         if char not in ''.join(candidate):
             return 0
     return 1
 
-
-# puzzle information
+# puzzle information (todo: terminal input and not hard coded)
 groups = [
     'nxb',
     'dmt',
