@@ -45,13 +45,11 @@ for w in words.words():
         break
 
 found = sorted(found, key=len)[::-1]
-print(found)
 
 
 # with all of the words found, we find which sequence of words are solutions
 solutions = []
 candidates = [[word] for word in found]
-print(candidates)
 solved = False
 while not solved:
     newCandidates = []
@@ -68,7 +66,7 @@ while not solved:
                 if isSolution(candidate, groups):
                     solutions.append(candidate)
                     print(f'found solution: {candidate}')
-                    solved = True
+                    solved = True # by commenting out this line, the solver will keep chewing on solutions of any n words. i'm happy enough to let it halt at the first found batch
                 else:
                     newCandidates.append(candidate)
 
@@ -78,7 +76,3 @@ while not solved:
 
 solutions = sorted(solutions, key=len)
 print(solutions)
-
-
-
-
